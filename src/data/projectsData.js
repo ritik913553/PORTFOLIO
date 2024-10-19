@@ -17,8 +17,8 @@ export const projectsData = [
       projectName: 'Movie App',
       projectDescription: 'A React  app that uses the TMDB API to fetch and display movie data.',
       techStack: ['React', 'Tailwind CSS', 'Database'],
-      demoLink: 'https://project-one-demo.com',
-      repoLink: 'https://github.com/user/project-one',
+      demoLink: 'https://movie-app-react-six-iota.vercel.app/',
+      repoLink: 'https://github.com/ritik913553/Movie-App-React-Ritik',
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ export const projectsData = [
       projectName: 'Obys Agency Clone',
       projectDescription: 'Cloned the Obys Agency website, replicating its sleek design, animations, and responsive layout for a modern, interactive user experience',
       techStack: ['html', 'css', 'js','GSAP','Sheryjs'],
-      demoLink: 'https://project-two-demo.com',
+      demoLink: 'https://ritik913553.github.io/Obys_Agency_Clone_Project/',
       repoLink: 'https://ritik913553.github.io/Obys_Agency_Clone_Project/',
     },
     {

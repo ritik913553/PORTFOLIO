@@ -3,7 +3,7 @@ import signature from "../../assets/signature.png";
 import { TfiAlignJustify } from "react-icons/tfi";
 import Navmobile from "./Navmobile";
 
-function Navbar() {
+function Navbar({activeSection}) {
   const [isVisible, setIsVisible] = useState(false);
 
   // Function to handle instant scroll when a navbar item is clicked
@@ -54,7 +54,7 @@ function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      {isVisible && <Navmobile setClose={setIsVisible} />}
+      {isVisible && <Navmobile setClose={setIsVisible} activeSection={activeSection}  />}
     </div>
   );
 }

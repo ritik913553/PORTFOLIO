@@ -14,9 +14,14 @@ import {
 } from "react-icons/fa";
 import Button from "./Button";
 import Navbar from "./navbar/Navbar";
+import { useNavigate } from "react-router-dom";
+import AlertModal from "./AlertModal";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024); // Default to mobile view if the width is less than 1024px
+  const navigate = useNavigate(); 
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+  const [cvUploaded, setCvUploaded] = useState(false); // Track if CV is uploaded
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,6 +35,18 @@ function Header() {
     };
   }, []);
 
+  function certificateHandler() {
+    navigate('/certification'); // Route to your certificate page
+  }
+
+  function CVhandler() {
+    if (!cvUploaded) {
+      setShowModal(true); // Show the alert modal if the CV is not uploaded
+    } else {
+      // Logic for downloading the CV goes here (if the CV is uploaded)
+      console.log("CV Downloaded!"); // Placeholder for actual download logic
+    }
+  }
   return (
    
     <div className="  w-full text-white px-5 font-mono lg:flex flex-row-reverse gap-2 lg:mt-8 justify-between">
@@ -64,7 +81,7 @@ function Header() {
         </p>
         <div className="flex mt-5 lg:mt-10 ml-1 text-lg lg:text-xl gap-3  ">
           <a
-            className="rounded-full border p-[1.5vw] hover:scale-75  lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
+            className="rounded-full border p-[1.5vw] hover:scale-75 transition-all duration-300 ease-in-out   lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
             href="https://github.com/ritik913553"
             target="_blank"
             rel="noopener noreferrer"
@@ -79,7 +96,7 @@ function Header() {
             />
           </a>
           <a
-            className="rounded-full border p-[1.5vw]  hover:scale-75 lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
+            className="rounded-full border p-[1.5vw]  hover:scale-75 transition-all duration-300 ease-in-out  lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
             href="https://x.com/RitikGu24346807"
             target="_blank"
             rel="noopener noreferrer"
@@ -93,7 +110,7 @@ function Header() {
             />
           </a>
           <a
-            className="rounded-full border hover:scale-75 p-[1.5vw] lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
+            className="rounded-full border hover:scale-75 transition-all duration-300 ease-in-out  p-[1.5vw] lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
             href="https://www.facebook.com/profile.php?id=100060419000955"
             target="_blank"
             rel="noopener noreferrer"
@@ -107,7 +124,7 @@ function Header() {
             />
           </a>
           <a
-            className="rounded-full border hover:scale-75 p-[1.5vw] lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
+            className="rounded-full border hover:scale-75 transition-all duration-300 ease-in-out  p-[1.5vw] lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
             href="https://www.linkedin.com/in/ritik-gupta-52aa982a7/"
             target="_blank"
             rel="noopener noreferrer"
@@ -121,7 +138,7 @@ function Header() {
             />
           </a>
           <a
-            className="rounded-full border p-[1.5vw] hover:scale-75 lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
+            className="rounded-full border p-[1.5vw] hover:scale-75 transition-all duration-300 ease-in-out  lg:p-[0.5vw] lg:w-[3.4vw] lg:h-[3.4vw] flex justify-center items-center  border-[#00EEFF]"
             href="https://www.instagram.com/ritikgupta0990/?hl=en"
             target="_blank"
             rel="noopener noreferrer"
@@ -136,10 +153,17 @@ function Header() {
           </a>
         </div>
         <div className="mt-5  flex gap-2 lg:gap-5">
-          <Button name="Download CV" />
-          <Button name="See Certification" />
+          <Button name="Download CV" cliclHandler={CVhandler} />
+          <Button name="See Certification" cliclHandler={certificateHandler} />
         </div>
       </div>
+       {/* Alert Modal */}
+       {showModal && (
+        <AlertModal
+          message={"CV not uploaded yet!"}
+          onClose={() => setShowModal(false)} // Close the modal when the button is clicked
+        />
+      )}
     </div>
   );
 }
