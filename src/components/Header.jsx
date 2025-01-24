@@ -4,6 +4,7 @@ import laptopImage from "../assets/dress.jpeg";
 import profile from "../assets/profile.png";
 import mobileImage from "../assets/ritik.jpeg";
 import AutoTypingText from "./AutoTypingText";
+
 import {
   FaInstagram,
   FaTwitter,
@@ -19,9 +20,9 @@ import AlertModal from "./AlertModal";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024); // Default to mobile view if the width is less than 1024px
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
-  const [cvUploaded, setCvUploaded] = useState(false); // Track if CV is uploaded
+  const [cvUploaded, setCvUploaded] = useState(true); // Track if CV is uploaded
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,7 +37,7 @@ function Header() {
   }, []);
 
   function certificateHandler() {
-    navigate('/certification'); // Route to your certificate page
+    navigate("/certification"); // Route to your certificate page
   }
 
   function CVhandler() {
@@ -44,16 +45,15 @@ function Header() {
       setShowModal(true); // Show the alert modal if the CV is not uploaded
     } else {
       // Logic for downloading the CV goes here (if the CV is uploaded)
-      console.log("CV Downloaded!"); // Placeholder for actual download logic
+
+      const cvURL = "/resume.pdf"; // Replace with the actual path to your PDF
+      window.open(cvURL, "_blank"); // Opens the PDF in a new tab
     }
   }
   return (
-   
     <div className="  w-full text-white px-5 font-mono lg:flex flex-row-reverse gap-2 lg:mt-8 justify-between">
-       
       <div className=" h-72 lg:h-[38vw] lg:w-[30%] mt-5  rounded-2xl lg:rounded-xl overflow-hidden shadow-[3px_0px_25px_rgba(76,73,201,0.8)]">
         <img
-          
           className={`h-full w-full  object-cover object-top  ${
             !isMobile && "transform scale-x-[-1]"
           }`}
@@ -157,8 +157,8 @@ function Header() {
           <Button name="See Certification" cliclHandler={certificateHandler} />
         </div>
       </div>
-       {/* Alert Modal */}
-       {showModal && (
+      {/* Alert Modal */}
+      {showModal && (
         <AlertModal
           message={"CV not uploaded yet!"}
           onClose={() => setShowModal(false)} // Close the modal when the button is clicked
