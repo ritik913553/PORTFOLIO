@@ -21,19 +21,19 @@ function Project({ project, mover, count }) {
       <div className=" lg:w-[35%]  lg:relative">
         <motion.img
           initial={{ opacity: 1 }}
-          whileHover={{ opacity: 0 }}
-          className="w-full h-full object-fill hidden lg:block lg:absolute lg:top-0 lg:left-0 z-10"
+          whileHover={{ opacity: project.videoSrc ? 0 : 1 }}
+          className={`w-full h-full object-fill {project.videoSrc ? hidden : absolute} lg:block lg:absolute lg:top-0 lg:left-0 z-10`}
           src={project.imageSrc}
           alt=""
         />
         <video
-          autoPlay
-          loop
-          muted
-          loading="lazy"
-          className="w-full h-full object-cover"
-          src={project.videoSrc}
-        ></video>
+            autoPlay
+            loop
+            muted
+            loading="lazy"
+            className="w-full h-full object-cover"
+            src={project.videoSrc}
+          ></video>
       </div>
       <div className="p-3 lg:w-[65%]">
         <h1 className="text-2xl font-bold lg:text-3xl lg:font-semibold">
@@ -70,8 +70,8 @@ function Project({ project, mover, count }) {
         </div>
         <div className="text-white mt-8 flex gap-20 items-center">
           <a
-          href={project.demoLink}
-          target="_blank"
+            href={project.demoLink}
+            target="_blank"
             className={`bg-[#00EEFF] shadow-[0_0_15px_#00EEFF] hover:shadow-[0_0_0px_#00EEFF] px-4 py-1 text-zinc-800 font-mono rounded-full transition-shadow duration-300 ease-in-out`}
           >
             Live Preview

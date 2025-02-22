@@ -3,12 +3,15 @@ import obysagency from '../assets/Projectvideos/obysagency.mp4';
 import hotel from '../assets/Projectvideos/hotel.mp4';
 import exoape from '../assets/Projectvideos/exoape.mp4'
 import refokus from '../assets/Projectvideos/refokus.mp4';
+import chatapp from '../assets/Projectvideos/chatapp.mp4'
 
 import movieappPhoto from '../assets/Projectphotos/movieapp.jpg';
 import obysagencyPhoto from '../assets/Projectphotos/obysagency.jpg';
 import hotelPhoto from '../assets/Projectphotos/hotel.jpg';
 import exoapePhoto from '../assets/Projectphotos/exoape.jpg'
 import refokusPhoto from '../assets/Projectphotos/refokus.jpg';
+import chatappPhoto from '../assets/Projectphotos/chatapp.jpg'
+import DevTubePhoto from '../assets/Projectphotos/devTube.jpg';
 export const projectsData = [
     {
       id: 1,
@@ -60,6 +63,24 @@ export const projectsData = [
         demoLink: 'https://refokus-project-neon.vercel.app/',
         repoLink: 'https://github.com/ritik913553/refokusProject',
       },
-      
+      {
+        id: 6,
+        imageSrc: DevTubePhoto ,
+        projectName: 'DevTube Backend',
+        projectDescription: " Inspired by YouTube, it allows users to upload, watch, like, and comment on videos in a seamless, interactive experience." ,
+        techStack: ['Express', 'MongoDB',],
+        repoLink: 'https://github.com/ritik913553/DevTube',
+        demoLink: 'https://github.com/ritik913553/DevTube'
+      },
+      {
+        id: 7,
+        videoSrc: chatapp,
+        imageSrc: chatappPhoto ,
+        projectName: 'Chat App',
+        projectDescription: "A fast and interactive chat application that enables seamless communication with a clean and user-friendly interface. Designed for both one-on-one and group conversations, it ensures instant message delivery with real-time updates." ,
+        techStack: ['React','Express', 'MongoDB','Socket.io',],
+        repoLink: 'https://github.com/ritik913553/Chat-App',
+        demoLink: 'https://chat-app-l3rm.onrender.com',
+      },
   ];
   

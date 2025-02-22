@@ -5,6 +5,9 @@ import { VscVscode } from "react-icons/vsc";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaJava } from "react-icons/fa";
 import SkillBar from "./SkillBar";
+import { SiExpress } from "react-icons/si";
+import { DiMongodb } from "react-icons/di";
+import { DiNodejsSmall } from "react-icons/di";
 function SkillSection() {
   const programmingData = [
     { name: "Html", icon: FaHtml5, percentage: "80" },
@@ -18,6 +21,9 @@ function SkillSection() {
     { name: "Vs code", icon: VscVscode, percentage: 80 },
     { name: "Tailwind CSS", icon: RiTailwindCssFill, percentage: 70 },
     { name: "GSAP", percentage: "60" },
+    {name: "Express", icon: SiExpress, percentage: "80"}, 
+    {name: "Node.js", icon: DiNodejsSmall, percentage: "70"},
+    {name: "MongoDB", icon: DiMongodb, percentage: "80"}
   ];
 
   return (
