@@ -11,7 +11,7 @@ import hotelPhoto from '../assets/Projectphotos/hotel.jpg';
 import exoapePhoto from '../assets/Projectphotos/exoape.jpg'
 import refokusPhoto from '../assets/Projectphotos/refokus.jpg';
 import chatappPhoto from '../assets/Projectphotos/chatapp.jpg'
-import DevTubePhoto from '../assets/Projectphotos/devTube.jpg';
+import DevTubePhoto from '../assets/Projectphotos/DevTube.jpg';
 export const projectsData = [
     {
       id: 1,
